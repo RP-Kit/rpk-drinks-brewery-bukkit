@@ -1,0 +1,33 @@
+import org.apache.tools.ant.filters.ReplaceTokens
+
+plugins {
+    id 'java'
+}
+
+group 'com.rpkit'
+version '1.0.0'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+    maven { url 'https://hub.spigotmc.org/nexus/content/groups/public/' }
+    maven { url 'https://ci.ender.zone/plugin/repository/everything/' }
+    maven { url 'https://repo.rpkit.com/repository/maven-releases/' }
+    maven { url 'https://jitpack.io/' }
+}
+
+dependencies {
+    implementation 'org.spigotmc:spigot-api:1.16.5-R0.1-SNAPSHOT'
+    implementation 'com.rpkit:rpk-core-bukkit:2.0.0:all@jar'
+    implementation 'com.rpkit:rpk-player-lib-bukkit:2.0.0:all@jar'
+    implementation 'com.rpkit:rpk-character-lib-bukkit:2.0.0:all@jar'
+    implementation 'com.rpkit:rpk-drink-lib-bukkit:2.0.0:all@jar'
+    implementation group: 'com.github.DieReicheErethons', name: 'Brewery', version: 'v3.0'
+}
+
+processResources {
+    filter ReplaceTokens, tokens: [
+            "version": version
+    ]
+}
