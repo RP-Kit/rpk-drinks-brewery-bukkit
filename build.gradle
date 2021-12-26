@@ -5,9 +5,12 @@ plugins {
 }
 
 group 'com.rpkit'
-version '1.0.0'
+version '1.1.0'
 
-sourceCompatibility = 1.8
+compileJava {
+    sourceCompatibility = "16"
+    targetCompatibility = "16"
+}
 
 repositories {
     mavenCentral()
@@ -19,11 +22,11 @@ repositories {
 
 dependencies {
     implementation 'org.spigotmc:spigot-api:1.16.5-R0.1-SNAPSHOT'
-    implementation 'com.rpkit:rpk-core-bukkit:2.0.0:all@jar'
-    implementation 'com.rpkit:rpk-player-lib-bukkit:2.0.0:all@jar'
-    implementation 'com.rpkit:rpk-character-lib-bukkit:2.0.0:all@jar'
-    implementation 'com.rpkit:rpk-drink-lib-bukkit:2.0.0:all@jar'
-    implementation group: 'com.github.DieReicheErethons', name: 'Brewery', version: 'v3.0'
+    implementation 'com.rpkit:rpk-core-bukkit:2.0.3:all@jar'
+    implementation 'com.rpkit:rpk-player-lib-bukkit:2.0.3:all@jar'
+    implementation 'com.rpkit:rpk-character-lib-bukkit:2.0.3:all@jar'
+    implementation 'com.rpkit:rpk-drink-lib-bukkit:2.0.3:all@jar'
+    implementation group: 'com.github.DieReicheErethons', name: 'Brewery', version: '3.1'
 }
 
 processResources {

@@ -12,6 +12,7 @@ import org.bukkit.inventory.ItemStack;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.concurrent.CompletableFuture;
 
 public class BreweryDrinkService implements RPKDrinkService {
     private final RPKDrinksBreweryBukkit plugin;
@@ -41,20 +42,21 @@ public class BreweryDrinkService implements RPKDrinkService {
     }
 
     @Override
-    public int getDrunkenness(RPKCharacter character) {
+    public CompletableFuture<Integer> getDrunkenness(RPKCharacter character) {
         BPlayer bPlayer = BPlayer.get(plugin.getServer().getPlayer(Objects.requireNonNull(character.getMinecraftProfile()).getMinecraftUUID()));
         if (bPlayer == null) {
-            return 0;
+            return CompletableFuture.completedFuture(0);
         }
-        return bPlayer.getDrunkeness();
+        return CompletableFuture.completedFuture(bPlayer.getDrunkeness());
     }
 
     @Override
-    public void setDrunkenness(RPKCharacter character, int drunkenness) {
+    public CompletableFuture<Void> setDrunkenness(RPKCharacter character, int drunkenness) {
         BPlayer bPlayer = BPlayer.get(plugin.getServer().getPlayer(Objects.requireNonNull(character.getMinecraftProfile()).getMinecraftUUID()));
         if (bPlayer == null) {
-            return;
+            return null;
         }
         bPlayer.setData(drunkenness, 1);
+        return CompletableFuture.completedFuture(null);
     }
 }
