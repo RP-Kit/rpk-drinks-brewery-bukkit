@@ -1,12 +1,11 @@
 package com.rpkit.drinks.bukkit.brewery.drink;
 
 import com.dre.brewery.BPlayer;
-import com.rpkit.drinks.bukkit.brewery.RPKDrinksBreweryBukkit;
 import com.rpkit.characters.bukkit.character.RPKCharacter;
-import com.rpkit.core.plugin.RPKPlugin;
 import com.rpkit.drink.bukkit.drink.RPKDrink;
 import com.rpkit.drink.bukkit.drink.RPKDrinkName;
 import com.rpkit.drink.bukkit.drink.RPKDrinkService;
+import com.rpkit.drinks.bukkit.brewery.RPKDrinksBreweryBukkit;
 import org.bukkit.inventory.ItemStack;
 
 import java.util.ArrayList;
@@ -22,7 +21,7 @@ public class BreweryDrinkService implements RPKDrinkService {
     }
 
     @Override
-    public RPKPlugin getPlugin() {
+    public RPKDrinksBreweryBukkit getPlugin() {
         return plugin;
     }
 
